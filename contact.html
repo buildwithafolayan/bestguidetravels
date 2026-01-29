@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Best Guide Travels & Tours</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-page-container {
+            gap: 4rem;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 400px;
+            background-color: #eee;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color-light);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">Best Guide <span class="nav__logo-accent">Travels</span></a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="destinations.html" class="nav__link">Destinations</a></li>
+                    <li class="nav__item"><a href="news.html" class="nav__link">Latest Updates</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link active-link">Contact Us</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close"><ion-icon name="close-outline"></ion-icon></div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle"><ion-icon name="menu-outline"></ion-icon></div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="section" style="padding-top: 8rem;">
+            <div class="container contact-page-container grid">
+
+                <!-- Info Side -->
+                <div>
+                    <h1 class="section__title section__title-left">Get in Touch</h1>
+                    <p class="contact__description">
+                        We are here to answer any questions you may have about our Best Guide experiences. Reach out to
+                        us and we’ll respond as soon as we can.
+                    </p>
+
+                    <div class="contact__info">
+                        <div class="contact__card">
+                            <ion-icon name="location-outline" class="contact__card-icon"></ion-icon>
+                            <div>
+                                <h3 class="contact__card-title">Head Office</h3>
+                                <span class="contact__card-data">123 Travel Lane, City, Country</span>
+                            </div>
+                        </div>
+                        <div class="contact__card">
+                            <ion-icon name="mail-outline" class="contact__card-icon"></ion-icon>
+                            <div>
+                                <h3 class="contact__card-title">Email</h3>
+                                <span class="contact__card-data">info@bestguidetravels.com</span>
+                            </div>
+                        </div>
+                        <div class="contact__card">
+                            <ion-icon name="call-outline" class="contact__card-icon"></ion-icon>
+                            <div>
+                                <h3 class="contact__card-title">Phone</h3>
+                                <span class="contact__card-data">+123 456 7890</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="contact__content">
+                    <form action="" class="contact__form">
+                        <div class="contact__form-div">
+                            <label for="" class="contact__form-tag">Full Name</label>
+                            <input type="text" placeholder="John Doe" class="contact__form-input">
+                        </div>
+                        <div class="contact__form-div">
+                            <label for="" class="contact__form-tag">Email Address</label>
+                            <input type="email" placeholder="john@email.com" class="contact__form-input">
+                        </div>
+                        <div class="contact__form-div">
+                            <label for="" class="contact__form-tag">Subject</label>
+                            <input type="text" placeholder="Visa Inquiry / Tour Booking" class="contact__form-input">
+                        </div>
+                        <div class="contact__form-div contact__form-area">
+                            <label for="" class="contact__form-tag">Message</label>
+                            <textarea cols="30" rows="10" placeholder="Tell us more about your travel plans..."
+                                class="contact__form-input"></textarea>
+                        </div>
+                        <button class="button">Submit Inquiry</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Map Placeholder -->
+            <div class="container" style="margin-top: 4rem;">
+                <div class="map-frame">
+                    <p>Map Integration (Embed Google Maps Iframe Here)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <a href="index.html" class="footer__logo">Best Guide Travels</a>
+                <p class="footer__description">
+                    Your gateway to the world.
+                </p>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Links</h3>
+                <ul class="footer__links">
+                    <li><a href="services.html" class="footer__link">Services</a></li>
+                    <li><a href="destinations.html" class="footer__link">Destinations</a></li>
+                    <li><a href="contact.html" class="footer__link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer__copy">&#169; 2025 Best Guide Travels & Tours. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

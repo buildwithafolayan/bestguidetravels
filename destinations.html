@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations | Best Guide Travels & Tours</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Extra styles for this page specifically */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--first-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            color: var(--first-color);
+            cursor: pointer;
+            font-family: var(--body-font);
+            font-weight: var(--font-medium);
+            transition: .3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active-filter {
+            background: var(--first-color);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">Best Guide <span class="nav__logo-accent">Travels</span></a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="destinations.html" class="nav__link active-link">Destinations</a>
+                    </li>
+                    <li class="nav__item"><a href="news.html" class="nav__link">Latest Updates</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link nav__cta">Contact Us</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close"><ion-icon name="close-outline"></ion-icon></div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle"><ion-icon name="menu-outline"></ion-icon></div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="section" style="padding-top: 8rem; text-align: center;">
+            <div class="container">
+                <h1 class="section__title">Explore the World</h1>
+                <p class="section__subtitle">Curated destinations for your next adventure</p>
+
+                <div class="filters">
+                    <button class="filter-btn active-filter">All</button>
+                    <button class="filter-btn">Beach</button>
+                    <button class="filter-btn">City</button>
+                    <button class="filter-btn">Adventure</button>
+                </div>
+
+                <div class="destinations__container grid">
+                    <!-- Maldives -->
+                    <div class="destinations__card">
+                        <div class="destinations__img-box">
+                            <img src="assets/img/maldives.png" alt="Maldives" class="destinations__img">
+                        </div>
+                        <div class="destinations__data">
+                            <h3 class="destinations__title">Maldives</h3>
+                            <span class="destinations__subtitle">Beach, Luxury</span>
+                            <span class="destinations__price">$1,200</span>
+                        </div>
+                    </div>
+
+                    <!-- Dubai -->
+                    <div class="destinations__card">
+                        <div class="destinations__img-box">
+                            <img src="assets/img/dubai.png" alt="Dubai" class="destinations__img">
+                        </div>
+                        <div class="destinations__data">
+                            <h3 class="destinations__title">Dubai</h3>
+                            <span class="destinations__subtitle">City, Luxury</span>
+                            <span class="destinations__price">$900</span>
+                        </div>
+                    </div>
+
+                    <!-- Paris -->
+                    <div class="destinations__card">
+                        <div class="destinations__img-box">
+                            <img src="assets/img/paris.png" alt="Paris" class="destinations__img">
+                        </div>
+                        <div class="destinations__data">
+                            <h3 class="destinations__title">Paris</h3>
+                            <span class="destinations__subtitle">City, Romance</span>
+                            <span class="destinations__price">$1,500</span>
+                        </div>
+                    </div>
+
+                    <!-- Bali -->
+                    <div class="destinations__card">
+                        <div class="destinations__img-box">
+                            <img src="assets/img/bali.png" alt="Bali" class="destinations__img">
+                        </div>
+                        <div class="destinations__data">
+                            <h3 class="destinations__title">Bali</h3>
+                            <span class="destinations__subtitle">Nature, Relax</span>
+                            <span class="destinations__price">$800</span>
+                        </div>
+                    </div>
+
+                    <!-- Santorini -->
+                    <div class="destinations__card">
+                        <div class="destinations__img-box">
+                            <img src="assets/img/santorini.png" alt="Santorini" class="destinations__img">
+                        </div>
+                        <div class="destinations__data">
+                            <h3 class="destinations__title">Santorini</h3>
+                            <span class="destinations__subtitle">Island, Views</span>
+                            <span class="destinations__price">$1,300</span>
+                        </div>
+                    </div>
+
+                    <!-- Tokyo -->
+                    <div class="destinations__card">
+                        <div class="destinations__img-box">
+                            <img src="assets/img/tokyo.png" alt="Tokyo" class="destinations__img">
+                        </div>
+                        <div class="destinations__data">
+                            <h3 class="destinations__title">Tokyo</h3>
+                            <span class="destinations__subtitle">City, Culture</span>
+                            <span class="destinations__price">$1,600</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer section">
+        <!-- Condensed Footer for consistency -->
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <a href="index.html" class="footer__logo">Best Guide Travels</a>
+                <p class="footer__description">
+                    Your gateway to the world.
+                </p>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Links</h3>
+                <ul class="footer__links">
+                    <li><a href="services.html" class="footer__link">Services</a></li>
+                    <li><a href="destinations.html" class="footer__link">Destinations</a></li>
+                    <li><a href="contact.html" class="footer__link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer__copy">&#169; 2025 Best Guide Travels & Tours. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
