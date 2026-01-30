@@ -5,69 +5,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latest Updates | Best Guide Travels & Tours</title>
+    <meta name="description"
+        content="Stay informed with the latest travel news, visa policies, and deals from Best Guide Travels.">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
+    <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="style.css">
+
     <style>
-        .news-grid {
+        .page-header {
+            padding: calc(var(--header-height) + var(--space-16)) 0 var(--space-16);
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 40%, var(--navy-light) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            top: -30%;
+            right: -10%;
+        }
+
+        .page-header__title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--white);
+            margin-bottom: var(--space-4);
+        }
+
+        .page-header__breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2);
+            font-size: var(--text-sm);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .page-header__breadcrumb a:hover {
+            color: var(--orange);
+        }
+
+        .page-header__breadcrumb span {
+            color: var(--orange);
+        }
+
+        .news-page {
+            padding: var(--space-24) 0;
+        }
+
+        .news__grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-12);
         }
 
         .news-card {
-            background: #fff;
-            border-radius: 1rem;
+            background: var(--white);
+            border-radius: var(--radius-xl);
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            transition: .3s;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
         }
 
         .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
         }
 
-        .news-img {
+        .news-card__image {
             width: 100%;
             height: 200px;
-            background-color: #eee;
             object-fit: cover;
         }
 
-        .news-data {
-            padding: 1.5rem;
+        .news-card__content {
+            padding: var(--space-6);
         }
 
-        .news-date {
-            font-size: var(--smaller-font-size);
-            color: var(--text-color-light);
-            display: block;
-            margin-bottom: 0.5rem;
+        .news-card__category {
+            display: inline-block;
+            padding: var(--space-1) var(--space-3);
+            background: var(--orange-glow);
+            color: var(--orange);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-3);
+            text-transform: uppercase;
         }
 
-        .news-title {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+        .news-card__title {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-3);
             line-height: 1.4;
         }
 
-        .news-excerpt {
-            font-size: var(--small-font-size);
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
+        .news-card__excerpt {
+            color: var(--gray-500);
+            font-size: var(--text-sm);
+            line-height: 1.7;
+            margin-bottom: var(--space-4);
+        }
+
+        .news-card__meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .news-card__date {
+            font-size: var(--text-sm);
+            color: var(--gray-400);
+        }
+
+        .news-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--orange);
+        }
+
+        .news-card__link:hover ion-icon {
+            transform: translateX(5px);
+        }
+
+        .news-card__link ion-icon {
+            transition: transform var(--transition-base);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: var(--space-20) 0;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+        }
+
+        .newsletter__content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter__content h2 {
+            color: var(--white);
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-4);
+        }
+
+        .newsletter__content p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--space-8);
+        }
+
+        .newsletter__form {
+            display: flex;
+            gap: var(--space-4);
+        }
+
+        .newsletter__input {
+            flex: 1;
+            padding: var(--space-4) var(--space-6);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: var(--text-base);
+        }
+
+        @media screen and (max-width: 576px) {
+            .newsletter__form {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Header -->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="index.html" class="nav__logo">
@@ -77,111 +203,230 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-                    <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
-                    <li class="nav__item"><a href="destinations.html" class="nav__link">Destinations</a></li>
-                    <li class="nav__item"><a href="news.html" class="nav__link active-link">Latest Updates</a></li>
-                    <li class="nav__item"><a href="contact.html" class="nav__link nav__cta">Contact Us</a></li>
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="services.html" class="nav__link">Services</a></li>
+                    <li><a href="destinations.html" class="nav__link">Destinations</a></li>
+                    <li><a href="news.html" class="nav__link active-link">Updates</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                    <li><a href="contact.html" class="nav__link nav__cta">Contact Us</a></li>
                 </ul>
-                <div class="nav__close" id="nav-close"><ion-icon name="close-outline"></ion-icon></div>
+                <div class="nav__close" id="nav-close">
+                    <ion-icon name="close-outline"></ion-icon>
+                </div>
             </div>
-            <div class="nav__toggle" id="nav-toggle"><ion-icon name="menu-outline"></ion-icon></div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
         </nav>
     </header>
 
-    <main class="main">
-        <section class="section" style="padding-top: 8rem;">
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
             <div class="container">
-                <h1 class="section__title">Travel News & Insights</h1>
-                <p class="section__subtitle block">Stay updated with the latest trends and policies</p>
+                <h1 class="page-header__title">Latest Updates</h1>
+                <div class="page-header__breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Updates</span>
+                </div>
+            </div>
+        </section>
 
-                <div class="news-grid">
-                    <!-- Article 1 -->
-                    <article class="news-card">
-                        <div class="news-img" style="background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);">
-                        </div>
-                        <div class="news-data">
-                            <span class="news-date">Dec 29, 2025 • Policy</span>
-                            <h2 class="news-title">New Visa-Free Entry for 5 Countries</h2>
-                            <p class="news-excerpt">
-                                Starting next month, travelers from select regions can enjoy visa-free entry. Check if
-                                your destination list is on the list.
-                            </p>
-                            <a href="#" class="button button--link">Read Article <ion-icon
-                                    name="arrow-forward-outline"></ion-icon></a>
-                        </div>
-                    </article>
+        <!-- News Grid -->
+        <section class="news-page">
+            <div class="container">
+                <div class="section__header fade-in">
+                    <span class="section__subtitle">Stay Informed</span>
+                    <h2 class="section__title">Travel News & <span>Updates</span></h2>
+                    <p class="section__description">
+                        Keep up with the latest travel trends, visa policies, and exclusive deals.
+                    </p>
+                </div>
 
-                    <!-- Article 2 -->
-                    <article class="news-card">
-                        <div class="news-img" style="background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);">
-                        </div>
-                        <div class="news-data">
-                            <span class="news-date">Dec 25, 2025 • Tips</span>
-                            <h2 class="news-title">Packing Hacks for Long Haul Flights</h2>
-                            <p class="news-excerpt">
-                                Survive your next 14-hour flight with these essential packing tips and comfort hacks
-                                from our expert guides.
+                <div class="news__grid">
+                    <!-- News Card 1 -->
+                    <div class="news-card fade-in">
+                        <img src="assets/img/hero.png" alt="Visa Policy Changes" class="news-card__image">
+                        <div class="news-card__content">
+                            <span class="news-card__category">Visa Updates</span>
+                            <h3 class="news-card__title">New Visa-On-Arrival Policies for 2026</h3>
+                            <p class="news-card__excerpt">
+                                Several countries have announced new visa-on-arrival policies that will make traveling
+                                easier for Nigerian passport holders.
                             </p>
-                            <a href="#" class="button button--link">Read Article <ion-icon
-                                    name="arrow-forward-outline"></ion-icon></a>
+                            <div class="news-card__meta">
+                                <span class="news-card__date">January 28, 2026</span>
+                                <a href="#" class="news-card__link">
+                                    Read More <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </a>
+                            </div>
                         </div>
-                    </article>
+                    </div>
 
-                    <!-- Article 3 -->
-                    <article class="news-card">
-                        <div class="news-img" style="background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);">
-                        </div>
-                        <div class="news-data">
-                            <span class="news-date">Dec 20, 2025 • Destinations</span>
-                            <h2 class="news-title">Why 2026 is the Year to Visit Japan</h2>
-                            <p class="news-excerpt">
-                                From the cherry blossoms to new theme park openings, here is why Japan should be number
-                                one on your bucket list.
+                    <!-- News Card 2 -->
+                    <div class="news-card fade-in">
+                        <img src="assets/img/flight.png" alt="New Flight Routes" class="news-card__image">
+                        <div class="news-card__content">
+                            <span class="news-card__category">Flights</span>
+                            <h3 class="news-card__title">Direct Flights to Bali & Tokyo Now Available</h3>
+                            <p class="news-card__excerpt">
+                                Exciting news for travelers! New direct flight routes have been added with discounted
+                                early bird pricing available.
                             </p>
-                            <a href="#" class="button button--link">Read Article <ion-icon
-                                    name="arrow-forward-outline"></ion-icon></a>
+                            <div class="news-card__meta">
+                                <span class="news-card__date">January 25, 2026</span>
+                                <a href="#" class="news-card__link">
+                                    Read More <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </a>
+                            </div>
                         </div>
-                    </article>
+                    </div>
 
-                    <!-- Article 4 -->
-                    <article class="news-card">
-                        <div class="news-img" style="background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);">
-                        </div>
-                        <div class="news-data">
-                            <span class="news-date">Dec 15, 2025 • Flights</span>
-                            <h2 class="news-title">Best Time to Book Holiday Flights</h2>
-                            <p class="news-excerpt">
-                                Analysis shows that booking exactly 3 months in advance yields the best prices for
-                                international travel this year.
+                    <!-- News Card 3 -->
+                    <div class="news-card fade-in">
+                        <img src="assets/img/dubai.png" alt="Holiday Specials" class="news-card__image">
+                        <div class="news-card__content">
+                            <span class="news-card__category">Deals</span>
+                            <h3 class="news-card__title">Holiday Special: Save Up to 25% on Packages</h3>
+                            <p class="news-card__excerpt">
+                                Our holiday season specials are here! Book your dream vacation now and enjoy massive
+                                savings on tour packages.
                             </p>
-                            <a href="#" class="button button--link">Read Article <ion-icon
-                                    name="arrow-forward-outline"></ion-icon></a>
+                            <div class="news-card__meta">
+                                <span class="news-card__date">January 20, 2026</span>
+                                <a href="#" class="news-card__link">
+                                    Read More <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </a>
+                            </div>
                         </div>
-                    </article>
+                    </div>
+
+                    <!-- News Card 4 -->
+                    <div class="news-card fade-in">
+                        <img src="assets/img/passport.png" alt="Passport Processing" class="news-card__image">
+                        <div class="news-card__content">
+                            <span class="news-card__category">Passport</span>
+                            <h3 class="news-card__title">Express Passport Processing Now Available</h3>
+                            <p class="news-card__excerpt">
+                                Need your passport urgently? Our new express service can get your documents ready in
+                                record time.
+                            </p>
+                            <div class="news-card__meta">
+                                <span class="news-card__date">January 15, 2026</span>
+                                <a href="#" class="news-card__link">
+                                    Read More <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Card 5 -->
+                    <div class="news-card fade-in">
+                        <img src="assets/img/maldives.png" alt="Maldives Special" class="news-card__image">
+                        <div class="news-card__content">
+                            <span class="news-card__category">Featured</span>
+                            <h3 class="news-card__title">Maldives: The Ultimate Honeymoon Destination</h3>
+                            <p class="news-card__excerpt">
+                                Discover why the Maldives remains the top choice for romantic getaways. Special
+                                honeymoon packages now available.
+                            </p>
+                            <div class="news-card__meta">
+                                <span class="news-card__date">January 10, 2026</span>
+                                <a href="#" class="news-card__link">
+                                    Read More <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Card 6 -->
+                    <div class="news-card fade-in">
+                        <img src="assets/img/visa.png" alt="Schengen Updates" class="news-card__image">
+                        <div class="news-card__content">
+                            <span class="news-card__category">Visa Updates</span>
+                            <h3 class="news-card__title">Schengen Visa Application Tips for 2026</h3>
+                            <p class="news-card__excerpt">
+                                Planning a European adventure? Here are the latest tips and requirements for a
+                                successful Schengen visa application.
+                            </p>
+                            <div class="news-card__meta">
+                                <span class="news-card__date">January 5, 2026</span>
+                                <a href="#" class="news-card__link">
+                                    Read More <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter__content fade-in">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter for the latest travel deals and updates directly in your inbox.</p>
+                    <form class="newsletter__form">
+                        <input type="email" class="newsletter__input" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn--primary">
+                            Subscribe
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer section">
-        <div class="footer__container container grid">
-            <div class="footer__content">
-                <a href="index.html" class="footer__logo">Best Guide Travels</a>
-                <p class="footer__description">
-                    Your gateway to the world.
-                </p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="index.html" class="footer__logo">Best Guide <span>Travels</span></a>
+                    <p class="footer__description">Your gateway to the world.</p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="footer__social-link"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="footer__social-link"><ion-icon name="logo-twitter"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Services</h3>
+                    <ul class="footer__links">
+                        <li><a href="services.html" class="footer__link">Visa Assistance</a></li>
+                        <li><a href="services.html" class="footer__link">Passport Services</a></li>
+                        <li><a href="services.html" class="footer__link">Flight Booking</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Company</h3>
+                    <ul class="footer__links">
+                        <li><a href="about.html" class="footer__link">About Us</a></li>
+                        <li><a href="destinations.html" class="footer__link">Destinations</a></li>
+                        <li><a href="news.html" class="footer__link">Latest Updates</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Support</h3>
+                    <ul class="footer__links">
+                        <li><a href="contact.html" class="footer__link">Contact Us</a></li>
+                        <li><a href="#" class="footer__link">FAQ</a></li>
+                        <li><a href="#" class="footer__link">Privacy Policy</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer__content">
-                <h3 class="footer__title">Links</h3>
-                <ul class="footer__links">
-                    <li><a href="services.html" class="footer__link">Services</a></li>
-                    <li><a href="destinations.html" class="footer__link">Destinations</a></li>
-                    <li><a href="contact.html" class="footer__link">Contact</a></li>
-                </ul>
+
+            <div class="footer__bottom">
+                <p class="footer__copy">&copy; 2026 Best Guide Travels & Tours. All rights reserved.</p>
             </div>
         </div>
-        <p class="footer__copy">&#169; 2025 Best Guide Travels & Tours. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>

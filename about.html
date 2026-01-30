@@ -5,17 +5,216 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Best Guide Travels & Tours</title>
+    <meta name="description"
+        content="Learn about Best Guide Travels & Tours - your trusted partner for travel services since 2014.">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
+    <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Page Header */
+        .page-header {
+            padding: calc(var(--header-height) + var(--space-16)) 0 var(--space-16);
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 40%, var(--navy-light) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            top: -30%;
+            right: -10%;
+        }
+
+        .page-header__title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--white);
+            margin-bottom: var(--space-4);
+        }
+
+        .page-header__breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2);
+            font-size: var(--text-sm);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .page-header__breadcrumb a:hover {
+            color: var(--orange);
+        }
+
+        .page-header__breadcrumb span {
+            color: var(--orange);
+        }
+
+        /* Story Section */
+        .story {
+            padding: var(--space-24) 0;
+        }
+
+        .story__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            align-items: center;
+        }
+
+        .story__image {
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .story__image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .story__content h2 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-6);
+        }
+
+        .story__content h2 span {
+            color: var(--orange);
+        }
+
+        .story__content p {
+            color: var(--gray-500);
+            line-height: 1.8;
+            margin-bottom: var(--space-4);
+        }
+
+        .story__content blockquote {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: var(--text-xl);
+            color: var(--navy);
+            padding-left: var(--space-6);
+            border-left: 4px solid var(--orange);
+            margin: var(--space-8) 0;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: var(--space-20) 0;
+            background: var(--off-white);
+        }
+
+        .mission__card {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: var(--space-12);
+            background: var(--white);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mission__icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-6);
+        }
+
+        .mission__icon ion-icon {
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+
+        .mission__card h2 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-4);
+        }
+
+        .mission__card p {
+            font-size: var(--text-lg);
+            color: var(--gray-500);
+            line-height: 1.8;
+        }
+
+        /* Values Section */
+        .values {
+            padding: var(--space-24) 0;
+        }
+
+        .values__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-12);
+        }
+
+        .value-card {
+            padding: var(--space-8);
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .value-card:hover {
+            border-color: var(--orange);
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .value-card__icon {
+            width: 60px;
+            height: 60px;
+            background: var(--orange-glow);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-5);
+        }
+
+        .value-card__icon ion-icon {
+            font-size: 1.75rem;
+            color: var(--orange);
+        }
+
+        .value-card h3 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-3);
+        }
+
+        .value-card p {
+            font-size: var(--text-sm);
+            color: var(--gray-500);
+        }
+
+        @media screen and (max-width: 991px) {
+            .story__grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-8);
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Header -->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="index.html" class="nav__logo">
@@ -25,75 +224,173 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-                    <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
-                    <li class="nav__item"><a href="destinations.html" class="nav__link">Destinations</a></li>
-                    <li class="nav__item"><a href="news.html" class="nav__link">Latest Updates</a></li>
-                    <li class="nav__item"><a href="contact.html" class="nav__link">Contact Us</a></li>
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="services.html" class="nav__link">Services</a></li>
+                    <li><a href="destinations.html" class="nav__link">Destinations</a></li>
+                    <li><a href="news.html" class="nav__link">Updates</a></li>
+                    <li><a href="about.html" class="nav__link active-link">About</a></li>
+                    <li><a href="contact.html" class="nav__link nav__cta">Contact Us</a></li>
                 </ul>
-                <div class="nav__close" id="nav-close"><ion-icon name="close-outline"></ion-icon></div>
+                <div class="nav__close" id="nav-close">
+                    <ion-icon name="close-outline"></ion-icon>
+                </div>
             </div>
-            <div class="nav__toggle" id="nav-toggle"><ion-icon name="menu-outline"></ion-icon></div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
         </nav>
     </header>
 
-    <main class="main">
-        <section class="section" style="padding-top: 8rem;">
-            <div class="container grid" style="gap: 4rem;">
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">About Us</h1>
+                <div class="page-header__breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>About</span>
+                </div>
+            </div>
+        </section>
 
-                <!-- Story Section -->
-                <div class="grid"
-                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: center; gap: 3rem;">
-                    <div>
-                        <h1 class="section__title section__title-left">Our Story</h1>
-                        <p style="margin-bottom: 1rem; line-height: 1.6;">
+        <!-- Story Section -->
+        <section class="story">
+            <div class="container">
+                <div class="story__grid">
+                    <div class="story__content fade-in">
+                        <h2>Our <span>Story</span></h2>
+                        <p>
                             Founded with a passion for exploration, <strong>Best Guide Travels & Tours</strong> started
-                            as a small consultancy helping friends navigate complex visa processes. Today, we are a
-                            leading travel agency dedicated to making the world accessible to everyone.
+                            as a small consultancy helping friends and family navigate complex visa processes.
                         </p>
-                        <p style="margin-bottom: 1rem; line-height: 1.6;">
-                            Our philosophy is simple: <em>"Travel should be about the destination, not the
-                                paperwork."</em> We handle the logistics so you can focus on the memories.
+                        <p>
+                            Today, we are a leading travel agency dedicated to making the world accessible to everyone.
+                            With over 10 years of experience, we've helped thousands of travelers realize their dreams.
+                        </p>
+                        <blockquote>
+                            "Travel should be about the destination, not the paperwork."
+                        </blockquote>
+                        <p>
+                            We handle the logistics so you can focus on the memories. That's our promise to you.
                         </p>
                     </div>
-                    <div>
-                        <img src="assets/img/vision.png" alt="Our Team"
-                            style="border-radius: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    <div class="story__image fade-in">
+                        <img src="assets/img/vision.png" alt="Our Team">
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Mission Section -->
-                <div
-                    style="text-align: center; background: var(--first-color-lighten); padding: 3rem; border-radius: 1rem;">
-                    <h2 class="section__title">Our Mission</h2>
-                    <p class="section__subtitle" style="max-width: 600px; margin: 0 auto; line-height: 1.8;">
-                        To be the number one go-to for anything regarding traveling. From passport to visa and beyond,
-                        we strive to provide seamless, premium, and updated services for global explorers.
+        <!-- Mission Section -->
+        <section class="mission">
+            <div class="container">
+                <div class="mission__card fade-in">
+                    <div class="mission__icon">
+                        <ion-icon name="compass-outline"></ion-icon>
+                    </div>
+                    <h2>Our Mission</h2>
+                    <p>
+                        To be the number one go-to agency for anything regarding travel. From passport to visa and
+                        beyond,
+                        we strive to provide seamless, premium, and up-to-date services for global explorers.
                     </p>
                 </div>
+            </div>
+        </section>
 
+        <!-- Values Section -->
+        <section class="values">
+            <div class="container">
+                <div class="section__header fade-in">
+                    <span class="section__subtitle">What We Stand For</span>
+                    <h2 class="section__title">Our Core <span>Values</span></h2>
+                </div>
+
+                <div class="values__grid">
+                    <div class="value-card fade-in">
+                        <div class="value-card__icon">
+                            <ion-icon name="shield-checkmark-outline"></ion-icon>
+                        </div>
+                        <h3>Trust & Reliability</h3>
+                        <p>We build lasting relationships through transparency and dependable service.</p>
+                    </div>
+
+                    <div class="value-card fade-in">
+                        <div class="value-card__icon">
+                            <ion-icon name="rocket-outline"></ion-icon>
+                        </div>
+                        <h3>Excellence</h3>
+                        <p>We strive for excellence in every service we provide, exceeding expectations.</p>
+                    </div>
+
+                    <div class="value-card fade-in">
+                        <div class="value-card__icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </div>
+                        <h3>Customer First</h3>
+                        <p>Your satisfaction is our priority. We listen, adapt, and deliver.</p>
+                    </div>
+
+                    <div class="value-card fade-in">
+                        <div class="value-card__icon">
+                            <ion-icon name="globe-outline"></ion-icon>
+                        </div>
+                        <h3>Global Reach</h3>
+                        <p>We connect you to destinations worldwide with expert local knowledge.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer section">
-        <div class="footer__container container grid">
-            <div class="footer__content">
-                <a href="index.html" class="footer__logo">Best Guide Travels</a>
-                <p class="footer__description">
-                    Your gateway to the world.
-                </p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="index.html" class="footer__logo">Best Guide <span>Travels</span></a>
+                    <p class="footer__description">Your gateway to the world.</p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="footer__social-link"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="footer__social-link"><ion-icon name="logo-twitter"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Services</h3>
+                    <ul class="footer__links">
+                        <li><a href="services.html" class="footer__link">Visa Assistance</a></li>
+                        <li><a href="services.html" class="footer__link">Passport Services</a></li>
+                        <li><a href="services.html" class="footer__link">Flight Booking</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Company</h3>
+                    <ul class="footer__links">
+                        <li><a href="about.html" class="footer__link">About Us</a></li>
+                        <li><a href="destinations.html" class="footer__link">Destinations</a></li>
+                        <li><a href="news.html" class="footer__link">Latest Updates</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Support</h3>
+                    <ul class="footer__links">
+                        <li><a href="contact.html" class="footer__link">Contact Us</a></li>
+                        <li><a href="#" class="footer__link">FAQ</a></li>
+                        <li><a href="#" class="footer__link">Privacy Policy</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer__content">
-                <h3 class="footer__title">Links</h3>
-                <ul class="footer__links">
-                    <li><a href="services.html" class="footer__link">Services</a></li>
-                    <li><a href="destinations.html" class="footer__link">Destinations</a></li>
-                    <li><a href="contact.html" class="footer__link">Contact</a></li>
-                </ul>
+
+            <div class="footer__bottom">
+                <p class="footer__copy">&copy; 2026 Best Guide Travels & Tours. All rights reserved.</p>
             </div>
         </div>
-        <p class="footer__copy">&#169; 2025 Best Guide Travels & Tours. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>

@@ -5,19 +5,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services | Best Guide Travels & Tours</title>
+    <meta name="description"
+        content="Comprehensive travel services including visa assistance, passport processing, and flight bookings by Best Guide Travels & Tours.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
-    <!-- Ionicons for Icons -->
+    <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Page Header */
+        .page-header {
+            padding: calc(var(--header-height) + var(--space-16)) 0 var(--space-16);
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 40%, var(--navy-light) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            top: -30%;
+            right: -10%;
+        }
+
+        .page-header__title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--white);
+            margin-bottom: var(--space-4);
+        }
+
+        .page-header__breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2);
+            font-size: var(--text-sm);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .page-header__breadcrumb a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .page-header__breadcrumb a:hover {
+            color: var(--orange);
+        }
+
+        .page-header__breadcrumb span {
+            color: var(--orange);
+        }
+
+        /* Service Detail Section */
+        .service-detail {
+            padding: var(--space-20) 0;
+        }
+
+        .service-detail:nth-child(even) {
+            background: var(--off-white);
+        }
+
+        .service-detail__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            align-items: center;
+        }
+
+        .service-detail:nth-child(even) .service-detail__grid {
+            direction: rtl;
+        }
+
+        .service-detail:nth-child(even) .service-detail__grid>* {
+            direction: ltr;
+        }
+
+        .service-detail__image {
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+        }
+
+        .service-detail__image img {
+            width: 100%;
+            height: auto;
+            transition: transform var(--transition-slow);
+        }
+
+        .service-detail__image:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-detail__content h2 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-4);
+        }
+
+        .service-detail__content h2 span {
+            color: var(--orange);
+        }
+
+        .service-detail__content p {
+            color: var(--gray-500);
+            margin-bottom: var(--space-6);
+            line-height: 1.8;
+        }
+
+        .service-detail__list {
+            margin-bottom: var(--space-8);
+        }
+
+        .service-detail__list li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-3);
+            color: var(--gray-600);
+        }
+
+        .service-detail__list li ion-icon {
+            color: var(--orange);
+            font-size: 1.25rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: var(--space-20) 0;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.2) 0%, transparent 70%);
+            bottom: -30%;
+            left: -10%;
+        }
+
+        .cta-section h2 {
+            font-size: var(--text-4xl);
+            color: var(--white);
+            margin-bottom: var(--space-4);
+        }
+
+        .cta-section p {
+            font-size: var(--text-lg);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--space-8);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media screen and (max-width: 991px) {
+            .service-detail__grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-8);
+            }
+
+            .service-detail:nth-child(even) .service-detail__grid {
+                direction: ltr;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Header -->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="index.html" class="nav__logo">
@@ -27,21 +194,12 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html" class="nav__link">Home</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="services.html" class="nav__link active-link">Services</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="destinations.html" class="nav__link">Destinations</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="news.html" class="nav__link">Latest Updates</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="contact.html" class="nav__link nav__cta">Contact Us</a>
-                    </li>
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="services.html" class="nav__link active-link">Services</a></li>
+                    <li><a href="destinations.html" class="nav__link">Destinations</a></li>
+                    <li><a href="news.html" class="nav__link">Updates</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                    <li><a href="contact.html" class="nav__link nav__cta">Contact Us</a></li>
                 </ul>
                 <div class="nav__close" id="nav-close">
                     <ion-icon name="close-outline"></ion-icon>
@@ -54,152 +212,201 @@
         </nav>
     </header>
 
-    <main class="main">
-        <!-- HEADER TITLE -->
-        <section class="section"
-            style="padding-top: 8rem; padding-bottom: 2rem; background-color: var(--first-color-lighten); text-align: center;">
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
             <div class="container">
-                <h1 class="section__title">Our Exclusive Services</h1>
-                <p class="section__subtitle" style="margin-bottom: 0;">Comprehensive solutions for all your travel needs
-                </p>
+                <h1 class="page-header__title">Our Services</h1>
+                <div class="page-header__breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Services</span>
+                </div>
             </div>
         </section>
 
-        <!-- SERVICES DETAILED LIST -->
-        <section class="section services-page" id="services-list">
-            <div class="container grid" style="gap: 3rem;">
-
-                <!-- Service Item 1: Visa -->
-                <div class="service-detailed grid"
-                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: center;">
-                    <div class="service-text">
-                        <h2 class="services__title" style="font-size: 1.5rem; color: var(--first-color);">Visa
-                            Assistance & Consultation</h2>
-                        <p style="margin-bottom: 1rem; line-height: 1.6;">
-                            Getting a visa can be the most stressful part of travel. We take that stress away. Our
-                            experts are up-to-date with the latest immigration laws for:
-                        </p>
-                        <ul
-                            style="list-style: disc; margin-left: 1.5rem; margin-bottom: 1.5rem; font-size: var(--small-font-size);">
-                            <li>Tourist Visas (Schengen, USA, UK, Canada, Dubai, etc.)</li>
-                            <li>Business & Conference Visas</li>
-                            <li>Student Visas</li>
-                            <li>Work Permits</li>
-                        </ul>
-                        <a href="contact.html" class="button button--flex">Inquire Now</a>
+        <!-- Service 1: Visa Assistance -->
+        <section class="service-detail">
+            <div class="container">
+                <div class="service-detail__grid">
+                    <div class="service-detail__image fade-in">
+                        <img src="assets/img/visa.png" alt="Visa Assistance Services">
                     </div>
-                    <div class="service-icon-large">
-                        <img src="assets/img/visa.png" alt="Visa Application"
-                            style="border-radius: 1rem; width: 100%; height: auto; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    <div class="service-detail__content fade-in">
+                        <h2>Visa Assistance & <span>Consultation</span></h2>
+                        <p>
+                            Getting a visa can be the most stressful part of travel. We take that stress away.
+                            Our experts are up-to-date with the latest immigration laws and requirements for
+                            destinations worldwide.
+                        </p>
+                        <ul class="service-detail__list">
+                            <li>
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Tourist Visas (Schengen, USA, UK, Canada, Dubai, etc.)
+                            </li>
+                            <li>
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Business & Conference Visas
+                            </li>
+                            <li>
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Student Visas
+                            </li>
+                            <li>
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Work Permits
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn--primary">
+                            Inquire Now
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
                     </div>
                 </div>
-
-                <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
-
-                <!-- Service Item 2: Passport -->
-                <div class="service-detailed grid"
-                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: center;">
-                    <div class="service-icon-large" style="order: -1;">
-                        <img src="assets/img/passport.png" alt="Passport Services"
-                            style="border-radius: 1rem; width: 100%; height: auto; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                    </div>
-                    <div class="service-text">
-                        <h2 class="services__title" style="font-size: 1.5rem; color: var(--first-color);">Passport
-                            Services</h2>
-                        <p style="margin-bottom: 1rem; line-height: 1.6;">
-                            Whether you are applying for your first passport, renewing an expired one, or need a
-                            replacement for a lost one, we expedite the process.
-                        </p>
-                        <ul
-                            style="list-style: disc; margin-left: 1.5rem; margin-bottom: 1.5rem; font-size: var(--small-font-size);">
-                            <li>New Passport Application</li>
-                            <li>Express Renewal</li>
-                            <li>Damage/Lost Passport Replacement</li>
-                            <li>Name Change / Corrections</li>
-                        </ul>
-                        <a href="contact.html" class="button button--flex">Get Started</a>
-                    </div>
-                </div>
-
-                <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
-
-                <!-- Service Item 3: Flights -->
-                <div class="service-detailed grid"
-                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: center;">
-                    <div class="service-text">
-                        <h2 class="services__title" style="font-size: 1.5rem; color: var(--first-color);">Flight Booking
-                            & Reservations</h2>
-                        <p style="margin-bottom: 1rem; line-height: 1.6;">
-                            We don't just book flights; we find the best connections, layovers, and prices. We have
-                            access to special agent-only fares.
-                        </p>
-                        <ul
-                            style="list-style: disc; margin-left: 1.5rem; margin-bottom: 1.5rem; font-size: var(--small-font-size);">
-                            <li>Domestic & International Flights</li>
-                            <li>Group Bookings</li>
-                            <li>Last Minute Deals</li>
-                        </ul>
-                        <a href="contact.html" class="button button--flex">Request Quote</a>
-                    </div>
-                    <div class="service-icon-large">
-                        <img src="assets/img/flight.png" alt="Flight Booking"
-                            style="border-radius: 1rem; width: 100%; height: auto; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- CALL TO ACTION -->
-        <section class="section" style="background-color: var(--first-color); color: #fff; text-align: center;">
+        <!-- Service 2: Passport Services -->
+        <section class="service-detail">
             <div class="container">
-                <h2 class="section__title" style="color: #fff;">Ready to Travel?</h2>
-                <p class="section__subtitle" style="color: rgba(255,255,255,0.8);">Let us handle the details while you
-                    pack your bags.</p>
-                <a href="contact.html" class="button" style="background-color: #fff; color: var(--first-color);">Contact
-                    Us Today</a>
+                <div class="service-detail__grid">
+                    <div class="service-detail__image fade-in">
+                        <img src="assets/img/passport.png" alt="Passport Services">
+                    </div>
+                    <div class="service-detail__content fade-in">
+                        <h2>Fast-Track <span>Passport Services</span></h2>
+                        <p>
+                            Whether you're applying for your first passport, renewing an expired one,
+                            or need a replacement for a lost document, we expedite the entire process for you.
+                        </p>
+                        <ul class="service-detail__list">
+                            <li>
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                New Passport Applications
+                            </li>
+                            <li>
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Express Renewal Services
+                            </li>
+                            <li>
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Lost/Damaged Passport Replacement
+                            </li>
+                            <li>
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Name Change & Corrections
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn--primary">
+                            Get Started
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service 3: Flight Booking -->
+        <section class="service-detail">
+            <div class="container">
+                <div class="service-detail__grid">
+                    <div class="service-detail__image fade-in">
+                        <img src="assets/img/flight.png" alt="Flight Booking Services">
+                    </div>
+                    <div class="service-detail__content fade-in">
+                        <h2>Flight Booking & <span>Reservations</span></h2>
+                        <p>
+                            We don't just book flights; we find the best connections, layovers, and prices.
+                            Our access to special agent-only fares means better deals for you.
+                        </p>
+                        <ul class="service-detail__list">
+                            <li>
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Domestic & International Flights
+                            </li>
+                            <li>
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Group Bookings
+                            </li>
+                            <li>
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Last Minute Deals
+                            </li>
+                            <li>
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Flight + Hotel Packages
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn--primary">
+                            Request Quote
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container fade-in">
+                <h2>Ready to Travel?</h2>
+                <p>Let us handle the details while you pack your bags and prepare for your adventure.</p>
+                <a href="contact.html" class="btn btn--white">
+                    Contact Us Today
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                </a>
             </div>
         </section>
     </main>
 
-    <footer class="footer section">
-        <!-- (Same footer content as index.html) -->
-        <div class="footer__container container grid">
-            <div class="footer__content">
-                <a href="index.html" class="footer__logo">Best Guide Travels</a>
-                <p class="footer__description">
-                    Your gateway to the world. <br> fast, reliable, and premium.
-                </p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="index.html" class="footer__logo">Best Guide <span>Travels</span></a>
+                    <p class="footer__description">
+                        Your gateway to the world. We provide fast, reliable, and premium travel services.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="footer__social-link"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="footer__social-link"><ion-icon name="logo-twitter"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Services</h3>
+                    <ul class="footer__links">
+                        <li><a href="services.html" class="footer__link">Visa Assistance</a></li>
+                        <li><a href="services.html" class="footer__link">Passport Services</a></li>
+                        <li><a href="services.html" class="footer__link">Flight Booking</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Company</h3>
+                    <ul class="footer__links">
+                        <li><a href="about.html" class="footer__link">About Us</a></li>
+                        <li><a href="destinations.html" class="footer__link">Destinations</a></li>
+                        <li><a href="news.html" class="footer__link">Latest Updates</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3 class="footer__title">Support</h3>
+                    <ul class="footer__links">
+                        <li><a href="contact.html" class="footer__link">Contact Us</a></li>
+                        <li><a href="#" class="footer__link">FAQ</a></li>
+                        <li><a href="#" class="footer__link">Privacy Policy</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="footer__content">
-                <h3 class="footer__title">Services</h3>
-                <ul class="footer__links">
-                    <li><a href="services.html" class="footer__link">Visa Assistance</a></li>
-                    <li><a href="services.html" class="footer__link">Passport Renewal</a></li>
-                    <li><a href="services.html" class="footer__link">Flight Booking</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__content">
-                <h3 class="footer__title">Company</h3>
-                <ul class="footer__links">
-                    <li><a href="about.html" class="footer__link">About Us</a></li>
-                    <li><a href="destinations.html" class="footer__link">Destinations</a></li>
-                    <li><a href="contact.html" class="footer__link">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__content">
-                <h3 class="footer__title">Social</h3>
-                <ul class="footer__social">
-                    <a href="#" class="footer__social-link"><ion-icon name="logo-facebook"></ion-icon></a>
-                    <a href="#" class="footer__social-link"><ion-icon name="logo-instagram"></ion-icon></a>
-                    <a href="#" class="footer__social-link"><ion-icon name="logo-twitter"></ion-icon></a>
-                </ul>
+            <div class="footer__bottom">
+                <p class="footer__copy">&copy; 2026 Best Guide Travels & Tours. All rights reserved.</p>
             </div>
         </div>
-        <p class="footer__copy">&#169; 2025 Best Guide Travels & Tours. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
