@@ -5,9 +5,11 @@ const navClose = document.getElementById('nav-close');
 
 // Show Menu
 if (navToggle) {
+    navToggle.setAttribute('aria-expanded', 'false');
     navToggle.addEventListener('click', () => {
         navMenu.classList.add('show-menu');
         document.body.style.overflow = 'hidden';
+        navToggle.setAttribute('aria-expanded', 'true');
     });
 }
 
@@ -16,6 +18,9 @@ if (navClose) {
     navClose.addEventListener('click', () => {
         navMenu.classList.remove('show-menu');
         document.body.style.overflow = '';
+        if (navToggle) {
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
     });
 }
 
@@ -24,8 +29,12 @@ const navLinks = document.querySelectorAll('.nav__link');
 
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
+        if (!navMenu) return;
         navMenu.classList.remove('show-menu');
         document.body.style.overflow = '';
+        if (navToggle) {
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
     });
 });
 
@@ -74,7 +83,9 @@ function highlightActiveSection() {
         const sectionHeight = section.offsetHeight;
         const sectionTop = section.offsetTop - 100;
         const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav__link[href*="${sectionId}"]`);
+        const navLink = document.querySelector(
+            `.nav__link[data-section="${sectionId}"], .nav__link[href*="${sectionId}"]`
+        );
 
         if (navLink) {
             if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
@@ -109,17 +120,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* ==================== COUNTER ANIMATION ==================== */
+function formatCounterValue(value, format, suffix) {
+    let displayValue = Math.floor(value);
+    let unit = '';
+
+    if (format === 'k') {
+        displayValue = Math.floor(value / 1000);
+        unit = 'K';
+    }
+
+    return `${displayValue}${unit}${suffix || ''}`;
+}
+
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16);
+    const format = element.dataset.format;
+    const suffix = element.dataset.suffix || '';
 
     function updateCounter() {
         start += increment;
         if (start < target) {
-            element.textContent = Math.floor(start);
+            element.textContent = formatCounterValue(start, format, suffix);
             requestAnimationFrame(updateCounter);
         } else {
-            element.textContent = target;
+            element.textContent = formatCounterValue(target, format, suffix);
         }
     }
 

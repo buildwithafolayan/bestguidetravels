@@ -7,6 +7,8 @@
     <title>Best Guide Travels & Tours | Your Journey Begins Here</title>
     <meta name="description"
         content="The #1 go-to travel agency for passports, visas, flights, and custom tours. Experience premium travel services with Best Guide Travels & Tours.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bestguidetravels.com/index.html">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,21 +32,21 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li><a href="index.html" class="nav__link active-link">Home</a></li>
-                    <li><a href="services.html" class="nav__link">Services</a></li>
-                    <li><a href="destinations.html" class="nav__link">Destinations</a></li>
-                    <li><a href="news.html" class="nav__link">Updates</a></li>
+                    <li><a href="index.html" class="nav__link active-link" data-section="home">Home</a></li>
+                    <li><a href="services.html" class="nav__link" data-section="services">Services</a></li>
+                    <li><a href="destinations.html" class="nav__link" data-section="destinations">Destinations</a></li>
+                    <li><a href="news.html" class="nav__link" data-section="updates">Updates</a></li>
                     <li><a href="about.html" class="nav__link">About</a></li>
-                    <li><a href="contact.html" class="nav__link nav__cta">Contact Us</a></li>
+                    <li><a href="contact.html" class="nav__link nav__cta" data-section="contact">Contact Us</a></li>
                 </ul>
-                <div class="nav__close" id="nav-close">
+                <button class="nav__close" id="nav-close" type="button" aria-label="Close menu">
                     <ion-icon name="close-outline"></ion-icon>
-                </div>
+                </button>
             </div>
 
-            <div class="nav__toggle" id="nav-toggle">
+            <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-controls="nav-menu">
                 <ion-icon name="menu-outline"></ion-icon>
-            </div>
+            </button>
         </nav>
     </header>
 
@@ -115,13 +117,16 @@
 
             <!-- Social Links -->
             <div class="hero__social">
-                <a href="#" class="hero__social-link" aria-label="Instagram">
+                <a href="https://www.instagram.com/" class="hero__social-link" aria-label="Instagram" target="_blank"
+                    rel="noopener">
                     <ion-icon name="logo-instagram"></ion-icon>
                 </a>
-                <a href="#" class="hero__social-link" aria-label="Facebook">
+                <a href="https://www.facebook.com/" class="hero__social-link" aria-label="Facebook" target="_blank"
+                    rel="noopener">
                     <ion-icon name="logo-facebook"></ion-icon>
                 </a>
-                <a href="#" class="hero__social-link" aria-label="Twitter">
+                <a href="https://x.com/" class="hero__social-link" aria-label="Twitter" target="_blank"
+                    rel="noopener">
                     <ion-icon name="logo-twitter"></ion-icon>
                 </a>
             </div>
@@ -254,15 +259,16 @@
                 <!-- Stats Bar -->
                 <div class="stats-bar fade-in">
                     <div class="stat-item">
-                        <div class="stat-item__number" data-count="10">10<span>+</span></div>
+                        <div class="stat-item__number" data-count="10" data-suffix="+">10<span>+</span></div>
                         <div class="stat-item__label">Years of Experience</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-item__number" data-count="5000">5K<span>+</span></div>
+                        <div class="stat-item__number" data-count="5000" data-format="k" data-suffix="+">5K<span>+</span>
+                        </div>
                         <div class="stat-item__label">Happy Travelers</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-item__number" data-count="50">50<span>+</span></div>
+                        <div class="stat-item__number" data-count="50" data-suffix="+">50<span>+</span></div>
                         <div class="stat-item__label">Destinations</div>
                     </div>
                 </div>
@@ -432,18 +438,19 @@
                         <form action="" id="contact-form">
                             <div class="form__group">
                                 <label for="name" class="form__label">Full Name</label>
-                                <input type="text" id="name" class="form__input" placeholder="John Doe" required>
-                            </div>
-
-                            <div class="form__group">
-                                <label for="email" class="form__label">Email Address</label>
-                                <input type="email" id="email" class="form__input" placeholder="john@example.com"
+                                <input type="text" id="name" name="name" class="form__input" placeholder="John Doe"
                                     required>
                             </div>
 
                             <div class="form__group">
+                                <label for="email" class="form__label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form__input"
+                                    placeholder="john@example.com" required>
+                            </div>
+
+                            <div class="form__group">
                                 <label for="message" class="form__label">Your Message</label>
-                                <textarea id="message" class="form__textarea"
+                                <textarea id="message" name="message" class="form__textarea"
                                     placeholder="How can we help you plan your trip?" required></textarea>
                             </div>
 
@@ -469,13 +476,16 @@
                         to help you explore without worry.
                     </p>
                     <div class="footer__social">
-                        <a href="#" class="footer__social-link" aria-label="Facebook">
+                        <a href="https://www.facebook.com/" class="footer__social-link" aria-label="Facebook"
+                            target="_blank" rel="noopener">
                             <ion-icon name="logo-facebook"></ion-icon>
                         </a>
-                        <a href="#" class="footer__social-link" aria-label="Instagram">
+                        <a href="https://www.instagram.com/" class="footer__social-link" aria-label="Instagram"
+                            target="_blank" rel="noopener">
                             <ion-icon name="logo-instagram"></ion-icon>
                         </a>
-                        <a href="#" class="footer__social-link" aria-label="Twitter">
+                        <a href="https://x.com/" class="footer__social-link" aria-label="Twitter" target="_blank"
+                            rel="noopener">
                             <ion-icon name="logo-twitter"></ion-icon>
                         </a>
                     </div>
@@ -503,8 +513,8 @@
                     <h3 class="footer__title">Support</h3>
                     <ul class="footer__links">
                         <li><a href="contact.html" class="footer__link">Contact Us</a></li>
-                        <li><a href="#" class="footer__link">FAQ</a></li>
-                        <li><a href="#" class="footer__link">Privacy Policy</a></li>
+                        <li><a href="faq.html" class="footer__link">FAQ</a></li>
+                        <li><a href="privacy.html" class="footer__link">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
