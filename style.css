@@ -953,23 +953,17 @@ textarea {
 
 .vision__image {
     position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-2xl);
 }
 
 .vision__image img {
-    border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-xl);
-}
-
-.vision__image::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: -20px;
     width: 100%;
     height: 100%;
-    border: 3px solid var(--orange);
+    object-fit: cover;
+    display: block;
     border-radius: var(--radius-2xl);
-    z-index: -1;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .vision__content {
@@ -1528,10 +1522,6 @@ textarea {
 
     .vision__image {
         order: 1;
-    }
-
-    .vision__image::before {
-        display: none;
     }
 
     .vision__list {
