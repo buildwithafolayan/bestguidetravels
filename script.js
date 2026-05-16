@@ -291,3 +291,188 @@ function createBackToTop() {
 }
 
 createBackToTop();
+/* ==================== ADDITIONS.JS ==================== */
+/* Append this entire file to the bottom of script.js    */
+/* ====================================================== */
+
+/* ==================== STICKY CTA BAR ==================== */
+(function () {
+    const bar = document.getElementById('sticky-cta-bar');
+    const barClose = document.getElementById('sticky-cta-close');
+    if (!bar) return;
+
+    // Show after scrolling 600px
+    const showThreshold = 600;
+    let barDismissed = sessionStorage.getItem('ctaBarDismissed');
+
+    function updateBar() {
+        if (barDismissed) return;
+        if (window.scrollY > showThreshold) {
+            bar.classList.add('visible');
+            document.body.classList.add('cta-bar-visible');
+        } else {
+            bar.classList.remove('visible');
+            document.body.classList.remove('cta-bar-visible');
+        }
+    }
+
+    window.addEventListener('scroll', updateBar, { passive: true });
+
+    if (barClose) {
+        barClose.addEventListener('click', () => {
+            bar.classList.remove('visible');
+            document.body.classList.remove('cta-bar-visible');
+            barDismissed = true;
+            sessionStorage.setItem('ctaBarDismissed', '1');
+        });
+    }
+})();
+
+/* ==================== EXIT-INTENT POPUP ==================== */
+(function () {
+    const overlay = document.getElementById('popup-overlay');
+    const popupClose = document.getElementById('popup-close');
+    const popupDismiss = document.getElementById('popup-dismiss');
+    const popupForm = document.getElementById('popup-form');
+
+    if (!overlay) return;
+
+    let popupShown = sessionStorage.getItem('popupShown');
+    let hasScrolled = false;
+
+    // Track scroll - only trigger after user has engaged
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) hasScrolled = true;
+    }, { passive: true, once: true });
+
+    // Desktop: mouse leave top of viewport
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 10 && !popupShown && hasScrolled) {
+            showPopup();
+        }
+    });
+
+    // Mobile: trigger after 45 seconds on page
+    setTimeout(() => {
+        if (!popupShown && hasScrolled) showPopup();
+    }, 45000);
+
+    function showPopup() {
+        overlay.classList.add('active');
+        popupShown = true;
+        sessionStorage.setItem('popupShown', '1');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePopup() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (popupClose) popupClose.addEventListener('click', closePopup);
+    if (popupDismiss) popupDismiss.addEventListener('click', closePopup);
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closePopup();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closePopup();
+    });
+
+    // Form submission - redirects to WhatsApp with message
+    if (popupForm) {
+        popupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('popup-name')?.value || '';
+            const destination = document.getElementById('popup-destination')?.value || '';
+            const phone = document.getElementById('popup-phone')?.value || '';
+
+            const waNumber = '2349010218984';
+            const message = encodeURIComponent(
+                `Hello Best Guide Travels! My name is ${name}. I'm interested in travelling to ${destination}. Please send me a free quote. My number: ${phone}`
+            );
+            const waUrl = `https://wa.me/${waNumber}?text=${message}`;
+
+            closePopup();
+            window.open(waUrl, '_blank');
+        });
+    }
+})();
+
+/* ==================== EMAILJS CONTACT FORM INTEGRATION ==================== */
+// Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, YOUR_PUBLIC_KEY with your EmailJS credentials
+// Sign up free at emailjs.com
+(function () {
+    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+    const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+
+    // Load EmailJS SDK
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    script.onload = () => {
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+        }
+    };
+    document.head.appendChild(script);
+
+    // Override form handler
+    const contactForm = document.getElementById('contact-form');
+    if (!contactForm) return;
+
+    // Remove existing listeners by cloning
+    const freshForm = contactForm.cloneNode(true);
+    contactForm.parentNode.replaceChild(freshForm, contactForm);
+
+    freshForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
+        if (!data.name || !data.email || !data.message) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalHTML = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Sending...';
+        submitBtn.disabled = true;
+
+        try {
+            if (typeof emailjs !== 'undefined' && EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID') {
+                await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this);
+            } else {
+                // Fallback: open WhatsApp with form data
+                const waNumber = '2349010218984';
+                const message = encodeURIComponent(
+                    `New inquiry from website:\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'Not provided'}\nService: ${data.service || 'Not specified'}\nMessage: ${data.message}`
+                );
+                window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+            }
+
+            submitBtn.innerHTML = 'Message Sent! ✓';
+            submitBtn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
+            this.reset();
+
+            setTimeout(() => {
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.style.background = '';
+                submitBtn.disabled = false;
+            }, 3000);
+
+        } catch (error) {
+            submitBtn.innerHTML = 'Failed. Try WhatsApp Instead →';
+            submitBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+            submitBtn.disabled = false;
+
+            setTimeout(() => {
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.style.background = '';
+            }, 3000);
+        }
+    });
+})();

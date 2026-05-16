@@ -19,9 +19,26 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="additions.css">
 </head>
 
 <body>
+
+    <!-- ==================== STICKY CTA BAR ==================== -->
+    <div class="sticky-cta-bar" id="sticky-cta-bar" role="banner">
+        <p class="sticky-cta-bar__text">
+            <strong>Free Travel Quote in 60 Seconds</strong> — Visas, Flights, Hotels & More
+        </p>
+        <a href="https://wa.me/2349010218984?text=Hi%20Best%20Guide%20Travels!%20I'd%20like%20a%20free%20travel%20quote."
+            target="_blank" rel="noopener" class="sticky-cta-bar__btn">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+            Chat Now
+        </a>
+        <button class="sticky-cta-bar__close" id="sticky-cta-close" aria-label="Close bar">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+    </div>
+
     <!-- ==================== HEADER ==================== -->
     <header class="header" id="header">
         <nav class="nav container">
@@ -53,7 +70,6 @@
     <main>
         <!-- ==================== HERO SECTION ==================== -->
         <section class="hero" id="home">
-            <!-- Floating Shapes -->
             <div class="hero__shapes">
                 <div class="hero__shape hero__shape--1"></div>
                 <div class="hero__shape hero__shape--2"></div>
@@ -63,7 +79,6 @@
                 <div class="hero__shape hero__shape--6"></div>
             </div>
 
-            <!-- Hero Background Video -->
             <div class="hero__video-wrapper" aria-hidden="true">
                 <video class="hero__video" autoplay muted loop playsinline preload="auto"
                     poster="assets/img/vision.png">
@@ -76,7 +91,6 @@
 
             <div class="hero__container container">
                 <div class="hero__content fade-in">
-                    <!-- Trust Badge -->
                     <div class="hero__badge">
                         <div class="hero__badge-icon">
                             <ion-icon name="checkmark-outline"></ion-icon>
@@ -84,30 +98,28 @@
                         <span class="hero__badge-text">Trusted by 5,000+ Travelers</span>
                     </div>
 
-                    <!-- Hero Title -->
                     <h1 class="hero__title">
                         Discover the World<br>
                         with <span class="hero__title-accent">Best Guide</span>
                     </h1>
 
-                    <!-- Hero Description -->
                     <p class="hero__description">
                         Your premium partner for visas, passports, flights, and unforgettable journeys.
                         We handle the logistics so you can focus on creating memories.
                     </p>
 
-                    <!-- CTA Buttons -->
                     <div class="hero__buttons">
                         <a href="services.html" class="btn btn--primary">
                             Explore Services
                             <ion-icon name="arrow-forward-outline"></ion-icon>
                         </a>
-                        <a href="contact.html" class="btn btn--secondary">
+                        <a href="https://wa.me/2349010218984?text=Hi%20Best%20Guide%20Travels!%20I'd%20like%20to%20plan%20my%20trip."
+                            target="_blank" rel="noopener" class="btn btn--secondary">
+                            <ion-icon name="logo-whatsapp"></ion-icon>
                             Plan My Trip
                         </a>
                     </div>
 
-                    <!-- Stats -->
                     <div class="hero__stats">
                         <div class="hero__stat">
                             <div class="hero__stat-number">10<span>+</span></div>
@@ -125,10 +137,9 @@
                 </div>
             </div>
 
-            <!-- Social Links -->
             <div class="hero__social">
-                <a href="https://www.instagram.com/bestguidetravels?igsh=eWFjdXh3YmFyMjI0&utm_source=qr" class="hero__social-link" aria-label="Instagram" target="_blank"
-                    rel="noopener">
+                <a href="https://www.instagram.com/bestguidetravels?igsh=eWFjdXh3YmFyMjI0&utm_source=qr"
+                    class="hero__social-link" aria-label="Instagram" target="_blank" rel="noopener">
                     <ion-icon name="logo-instagram"></ion-icon>
                 </a>
                 <a href="https://www.facebook.com/" class="hero__social-link" aria-label="Facebook" target="_blank"
@@ -140,12 +151,46 @@
                 </a>
             </div>
 
-            <!-- Scroll Indicator -->
             <div class="hero__scroll">
                 <ion-icon name="chevron-down-outline" class="hero__scroll-icon"></ion-icon>
                 <span>Scroll to explore</span>
             </div>
         </section>
+
+        <!-- ==================== TRUST STRIP ==================== -->
+        <div class="trust-strip">
+            <div class="trust-strip__inner container">
+                <div class="trust-strip__item">
+                    <ion-icon name="shield-checkmark-outline"></ion-icon>
+                    <span>Verified Agency</span>
+                </div>
+                <div class="trust-strip__divider"></div>
+                <div class="trust-strip__item">
+                    <ion-icon name="airplane-outline"></ion-icon>
+                    <span>All Major Airlines</span>
+                </div>
+                <div class="trust-strip__divider"></div>
+                <div class="trust-strip__item">
+                    <ion-icon name="bed-outline"></ion-icon>
+                    <span>5-Star Hotels</span>
+                </div>
+                <div class="trust-strip__divider"></div>
+                <div class="trust-strip__item">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <span>Secure Booking</span>
+                </div>
+                <div class="trust-strip__divider"></div>
+                <div class="trust-strip__item">
+                    <ion-icon name="headset-outline"></ion-icon>
+                    <span>24/7 Support</span>
+                </div>
+                <div class="trust-strip__divider"></div>
+                <div class="trust-strip__item">
+                    <ion-icon name="star-outline"></ion-icon>
+                    <span>5-Star Rated</span>
+                </div>
+            </div>
+        </div>
 
         <!-- ==================== SERVICES SECTION ==================== -->
         <section class="services" id="services">
@@ -158,8 +203,8 @@
                     </p>
                 </div>
 
-                <div class="services__grid">
-                    <!-- Service Card 1 -->
+                <div class="services__grid services__grid--six">
+                    <!-- Visa Assistance -->
                     <div class="service-card fade-in fade-in-delay-1">
                         <div class="service-card__icon">
                             <ion-icon name="document-text-outline"></ion-icon>
@@ -167,14 +212,14 @@
                         <h3 class="service-card__title">Visa Assistance</h3>
                         <p class="service-card__description">
                             Expert guidance through complex visa requirements for any destination.
-                            Tourist, business, student, or work visas - we've got you covered.
+                            Tourist, business, student, or work visas — we've got you covered.
                         </p>
                         <a href="services.html" class="service-card__link">
                             Learn More <ion-icon name="arrow-forward-outline"></ion-icon>
                         </a>
                     </div>
 
-                    <!-- Service Card 2 -->
+                    <!-- Passport Services -->
                     <div class="service-card fade-in fade-in-delay-2">
                         <div class="service-card__icon">
                             <ion-icon name="id-card-outline"></ion-icon>
@@ -189,7 +234,7 @@
                         </a>
                     </div>
 
-                    <!-- Service Card 3 -->
+                    <!-- Flight Booking -->
                     <div class="service-card fade-in fade-in-delay-3">
                         <div class="service-card__icon">
                             <ion-icon name="airplane-outline"></ion-icon>
@@ -203,6 +248,58 @@
                             Learn More <ion-icon name="arrow-forward-outline"></ion-icon>
                         </a>
                     </div>
+
+                    <!-- Hotel Booking -->
+                    <div class="service-card fade-in fade-in-delay-1">
+                        <div class="service-card__icon">
+                            <ion-icon name="bed-outline"></ion-icon>
+                        </div>
+                        <h3 class="service-card__title">Hotel Booking</h3>
+                        <p class="service-card__description">
+                            Hand-picked 3-star to 5-star hotels worldwide. We negotiate the best rates
+                            so you sleep in comfort without overpaying.
+                        </p>
+                        <a href="services.html" class="service-card__link">
+                            Learn More <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                    </div>
+
+                    <!-- Travel Insurance -->
+                    <div class="service-card fade-in fade-in-delay-2">
+                        <div class="service-card__icon">
+                            <ion-icon name="shield-outline"></ion-icon>
+                        </div>
+                        <h3 class="service-card__title">Travel Insurance</h3>
+                        <p class="service-card__description">
+                            Comprehensive travel insurance covering medical emergencies, trip cancellations,
+                            lost luggage, and more. Travel with total peace of mind.
+                        </p>
+                        <a href="services.html" class="service-card__link">
+                            Learn More <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                    </div>
+
+                    <!-- Airport Transfers -->
+                    <div class="service-card fade-in fade-in-delay-3">
+                        <div class="service-card__icon">
+                            <ion-icon name="car-outline"></ion-icon>
+                        </div>
+                        <h3 class="service-card__title">Airport Transfers</h3>
+                        <p class="service-card__description">
+                            Reliable, on-time airport pickup and drop-off services worldwide.
+                            Arrive stress-free with a driver waiting for you.
+                        </p>
+                        <a href="services.html" class="service-card__link">
+                            Learn More <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="services__footer fade-in">
+                    <a href="services.html" class="btn btn--outline">
+                        View All Services
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                    </a>
                 </div>
             </div>
         </section>
@@ -297,7 +394,6 @@
                 </div>
 
                 <div class="destinations__grid">
-                    <!-- Dubai -->
                     <div class="destination-card fade-in fade-in-delay-1">
                         <img src="assets/img/dubai.png" alt="Dubai" class="destination-card__image">
                         <div class="destination-card__overlay">
@@ -312,7 +408,6 @@
                         </div>
                     </div>
 
-                    <!-- London -->
                     <div class="destination-card fade-in fade-in-delay-2">
                         <img src="assets/img/london.png" alt="London" class="destination-card__image">
                         <div class="destination-card__overlay">
@@ -327,7 +422,6 @@
                         </div>
                     </div>
 
-                    <!-- Paris -->
                     <div class="destination-card fade-in fade-in-delay-3">
                         <img src="assets/img/paris.png" alt="Paris" class="destination-card__image">
                         <div class="destination-card__overlay">
@@ -342,7 +436,6 @@
                         </div>
                     </div>
 
-                    <!-- Zanzibar -->
                     <div class="destination-card fade-in fade-in-delay-1">
                         <img src="assets/img/zanzibar.png" alt="Zanzibar" class="destination-card__image">
                         <div class="destination-card__overlay">
@@ -357,7 +450,6 @@
                         </div>
                     </div>
 
-                    <!-- Maldives -->
                     <div class="destination-card fade-in fade-in-delay-2">
                         <img src="assets/img/maldives.png" alt="Maldives" class="destination-card__image">
                         <div class="destination-card__overlay">
@@ -372,7 +464,6 @@
                         </div>
                     </div>
 
-                    <!-- Cairo -->
                     <div class="destination-card fade-in fade-in-delay-3">
                         <img src="assets/img/cairo.png" alt="Cairo, Egypt" class="destination-card__image">
                         <div class="destination-card__overlay">
@@ -383,6 +474,96 @@
                                 <a href="destinations.html" class="btn btn--white destination-card__btn">
                                     View Details
                                 </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TESTIMONIALS SECTION ==================== -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section__header fade-in">
+                    <span class="section__subtitle">Client Stories</span>
+                    <h2 class="section__title">What Our <span>Travelers Say</span></h2>
+                    <p class="section__description">
+                        Real experiences from real travelers. We let our results speak for themselves.
+                    </p>
+                </div>
+
+                <div class="testimonials__grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card fade-in fade-in-delay-1">
+                        <div class="testimonial-card__stars">
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                        </div>
+                        <p class="testimonial-card__quote">
+                            "Best Guide handled everything for my Dubai trip — visa, flights, hotel, and airport
+                            transfer. I literally just showed up at the airport. Absolutely seamless experience."
+                        </p>
+                        <div class="testimonial-card__footer">
+                            <div class="testimonial-card__avatar">A</div>
+                            <div>
+                                <p class="testimonial-card__name">Adaeze Okonkwo</p>
+                                <p class="testimonial-card__trip">
+                                    <ion-icon name="location-outline"></ion-icon>
+                                    Dubai, UAE — Family Trip
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card fade-in fade-in-delay-2">
+                        <div class="testimonial-card__stars">
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                        </div>
+                        <p class="testimonial-card__quote">
+                            "Got my Schengen visa approved in under two weeks with their help. I had been rejected
+                            before going elsewhere. These people actually know what they're doing."
+                        </p>
+                        <div class="testimonial-card__footer">
+                            <div class="testimonial-card__avatar">T</div>
+                            <div>
+                                <p class="testimonial-card__name">Tunde Adeleke</p>
+                                <p class="testimonial-card__trip">
+                                    <ion-icon name="location-outline"></ion-icon>
+                                    Paris, France — Business Travel
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card fade-in fade-in-delay-3">
+                        <div class="testimonial-card__stars">
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                            <ion-icon name="star" class="testimonial-card__star"></ion-icon>
+                        </div>
+                        <p class="testimonial-card__quote">
+                            "Our Maldives honeymoon was a dream. Best Guide arranged everything and even surprised
+                            us with a room upgrade. We will never use another travel agency again."
+                        </p>
+                        <div class="testimonial-card__footer">
+                            <div class="testimonial-card__avatar">C</div>
+                            <div>
+                                <p class="testimonial-card__name">Chioma & Emeka Nwosu</p>
+                                <p class="testimonial-card__trip">
+                                    <ion-icon name="location-outline"></ion-icon>
+                                    Maldives — Honeymoon Package
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -402,7 +583,6 @@
                 </div>
 
                 <div class="updates__grid">
-                    <!-- Update Card 1 -->
                     <div class="update-card fade-in fade-in-delay-1">
                         <div class="update-card__icon">
                             <ion-icon name="notifications-outline"></ion-icon>
@@ -415,7 +595,6 @@
                         <span class="update-card__date">January 28, 2026</span>
                     </div>
 
-                    <!-- Update Card 2 -->
                     <div class="update-card fade-in fade-in-delay-2">
                         <div class="update-card__icon">
                             <ion-icon name="airplane-outline"></ion-icon>
@@ -428,7 +607,6 @@
                         <span class="update-card__date">January 25, 2026</span>
                     </div>
 
-                    <!-- Update Card 3 -->
                     <div class="update-card fade-in fade-in-delay-3">
                         <div class="update-card__icon">
                             <ion-icon name="gift-outline"></ion-icon>
@@ -473,19 +651,22 @@
                                 </div>
                                 <div>
                                     <span class="contact-card__title">Call Us</span>
-                                    <span class="contact-card__data">+123 456 7890</span>
+                                    <span class="contact-card__data">+234 901 021 8984</span>
                                 </div>
                             </div>
 
-                            <div class="contact-card">
-                                <div class="contact-card__icon">
-                                    <ion-icon name="location-outline"></ion-icon>
+                            <a href="https://wa.me/2349010218984?text=Hi%20Best%20Guide%20Travels!%20I'd%20like%20to%20enquire%20about%20your%20services."
+                                target="_blank" rel="noopener" class="contact-card"
+                                style="text-decoration:none; cursor:pointer;">
+                                <div class="contact-card__icon"
+                                    style="background: linear-gradient(135deg,#25d366,#128c7e); color:white;">
+                                    <ion-icon name="logo-whatsapp"></ion-icon>
                                 </div>
                                 <div>
-                                    <span class="contact-card__title">Visit Us</span>
-                                    <span class="contact-card__data">123 Travel Lane, City, Country</span>
+                                    <span class="contact-card__title">WhatsApp Us</span>
+                                    <span class="contact-card__data">Fastest response — tap to chat</span>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
@@ -535,8 +716,8 @@
                             target="_blank" rel="noopener">
                             <ion-icon name="logo-facebook"></ion-icon>
                         </a>
-                        <a href="https://www.instagram.com/bestguidetravels?igsh=eWFjdXh3YmFyMjI0&utm_source=qr" class="footer__social-link" aria-label="Instagram"
-                            target="_blank" rel="noopener">
+                        <a href="https://www.instagram.com/bestguidetravels?igsh=eWFjdXh3YmFyMjI0&utm_source=qr"
+                            class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
                             <ion-icon name="logo-instagram"></ion-icon>
                         </a>
                         <a href="https://x.com/" class="footer__social-link" aria-label="Twitter" target="_blank"
@@ -552,6 +733,9 @@
                         <li><a href="services.html" class="footer__link">Visa Assistance</a></li>
                         <li><a href="services.html" class="footer__link">Passport Services</a></li>
                         <li><a href="services.html" class="footer__link">Flight Booking</a></li>
+                        <li><a href="services.html" class="footer__link">Hotel Booking</a></li>
+                        <li><a href="services.html" class="footer__link">Travel Insurance</a></li>
+                        <li><a href="services.html" class="footer__link">Airport Transfers</a></li>
                     </ul>
                 </div>
 
@@ -580,7 +764,49 @@
         </div>
     </footer>
 
+    <!-- ==================== WHATSAPP FLOATING BUTTON ==================== -->
+    <div class="whatsapp-float" id="whatsapp-float">
+        <span class="whatsapp-float__bubble">Chat with us now!</span>
+        <a href="https://wa.me/2349010218984?text=Hi%20Best%20Guide%20Travels!%20I'd%20like%20to%20enquire%20about%20your%20services."
+            target="_blank" rel="noopener" class="whatsapp-float__btn" aria-label="Chat on WhatsApp">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+        </a>
+    </div>
+
+    <!-- ==================== EXIT-INTENT POPUP ==================== -->
+    <div class="popup-overlay" id="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+        <div class="popup">
+            <div class="popup__header">
+                <button class="popup__close" id="popup-close" aria-label="Close popup">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+                <div class="popup__header-icon">
+                    <ion-icon name="airplane-outline"></ion-icon>
+                </div>
+                <span class="popup__tag">Limited Slots Available</span>
+                <h2 class="popup__title" id="popup-title">Get Your Free<br>Travel Quote Today</h2>
+                <p class="popup__subtitle">Tell us where you want to go — we'll handle everything else.</p>
+            </div>
+            <div class="popup__body">
+                <form class="popup__form" id="popup-form">
+                    <input type="text" id="popup-name" class="popup__input" placeholder="Your Full Name" required>
+                    <input type="text" id="popup-destination" class="popup__input"
+                        placeholder="Where do you want to go?" required>
+                    <input type="tel" id="popup-phone" class="popup__input" placeholder="Your WhatsApp Number" required>
+                    <button type="submit" class="popup__submit">
+                        <ion-icon name="logo-whatsapp"></ion-icon>
+                        Get My Free Quote on WhatsApp
+                    </button>
+                    <button type="button" class="popup__dismiss" id="popup-dismiss">
+                        No thanks, I'll plan it myself
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script src="additions.js"></script>
 </body>
 
 </html>
