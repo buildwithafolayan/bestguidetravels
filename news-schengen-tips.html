@@ -9,6 +9,17 @@
         content="Planning a European adventure? Follow these Schengen visa application tips for 2026.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://bestguidetravels.com/news-schengen-tips.html">
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Schengen Visa Application Tips for 2026 | Best Guide Travels & Tours">
+    <meta property="og:description" content="Planning a European adventure? Follow these Schengen visa application tips for 2026.">
+    <meta property="og:url" content="https://bestguidetravels.com/news-schengen-tips.html">
+    <meta property="og:image" content="https://bestguidetravels.com/assets/img/visa.webp">
+    <meta property="og:site_name" content="Best Guide Travels & Tours">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Schengen Visa Application Tips for 2026 | Best Guide Travels & Tours">
+    <meta name="twitter:description" content="Planning a European adventure? Follow these Schengen visa application tips for 2026.">
+    <meta name="twitter:image" content="https://bestguidetravels.com/assets/img/visa.webp">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,11 +104,26 @@
 </head>
 
 <body>
+
+    <!-- ==================== STICKY CTA BAR ==================== -->
+    <div class="sticky-cta-bar" id="sticky-cta-bar" role="banner">
+        <p class="sticky-cta-bar__text">
+            <strong>Free Travel Quote in 60 Seconds</strong> — Visas, Flights, Hotels & More
+        </p>
+        <a href="https://wa.me/2349010218984?text=Hi%20Best%20Guide%20Travels!%20I'd%20like%20a%20free%20travel%20quote."
+            target="_blank" rel="noopener" class="sticky-cta-bar__btn">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+            Chat Now
+        </a>
+        <button class="sticky-cta-bar__close" id="sticky-cta-close" aria-label="Close bar">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+    </div>
     <!-- Header -->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="index.html" class="nav__logo">
-                <img src="assets/img/logo.png" alt="Best Guide Travels Logo" class="nav__logo-img">
+                <img src="assets/img/logo.webp" alt="Best Guide Travels Logo" class="nav__logo-img" width="48" height="48">
                 <span class="nav__logo-text">Best Guide <span class="nav__logo-accent">Travels</span></span>
             </a>
 
@@ -141,7 +167,7 @@
                     <span>January 5, 2026</span>
                     <span>Visa Updates</span>
                 </div>
-                <img src="assets/img/visa.png" alt="Schengen Updates" class="article__image">
+                <img src="assets/img/visa.webp" alt="Schengen Updates" class="article__image" width="800" height="800" loading="lazy">
                 <div class="article__body">
                     <p>
                         Schengen visa requirements can shift year to year, so early preparation is key. Ensure your
@@ -223,6 +249,47 @@
             </div>
         </div>
     </footer>
+
+    <!-- ==================== WHATSAPP FLOATING BUTTON ==================== -->
+    <div class="whatsapp-float" id="whatsapp-float">
+        <span class="whatsapp-float__bubble">Chat with us now!</span>
+        <a href="https://wa.me/2349010218984?text=Hi%20Best%20Guide%20Travels!%20I'd%20like%20to%20enquire%20about%20your%20services."
+            target="_blank" rel="noopener" class="whatsapp-float__btn" aria-label="Chat on WhatsApp">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+        </a>
+    </div>
+
+    <!-- ==================== EXIT-INTENT POPUP ==================== -->
+    <div class="popup-overlay" id="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+        <div class="popup">
+            <div class="popup__header">
+                <button class="popup__close" id="popup-close" aria-label="Close popup">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+                <div class="popup__header-icon">
+                    <ion-icon name="airplane-outline"></ion-icon>
+                </div>
+                <span class="popup__tag">Limited Slots Available</span>
+                <h2 class="popup__title" id="popup-title">Get Your Free<br>Travel Quote Today</h2>
+                <p class="popup__subtitle">Tell us where you want to go — we'll handle everything else.</p>
+            </div>
+            <div class="popup__body">
+                <form class="popup__form" id="popup-form">
+                    <input type="text" id="popup-name" class="popup__input" placeholder="Your Full Name" required>
+                    <input type="text" id="popup-destination" class="popup__input"
+                        placeholder="Where do you want to go?" required>
+                    <input type="tel" id="popup-phone" class="popup__input" placeholder="Your WhatsApp Number" required>
+                    <button type="submit" class="popup__submit">
+                        <ion-icon name="logo-whatsapp"></ion-icon>
+                        Get My Free Quote on WhatsApp
+                    </button>
+                    <button type="button" class="popup__dismiss" id="popup-dismiss">
+                        No thanks, I'll plan it myself
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
